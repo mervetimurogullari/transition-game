@@ -1,0 +1,124 @@
+{{ load static }}
+
+{{ block title }}
+    Background scenario
+{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-title { margin-bottom: 20px !important; padding-top: 10px !important; font-size: 1.8rem; }
+    
+    .instruction-box, .collab-box {
+        padding: 20px 25px; 
+        margin-bottom: 20px; 
+        border-radius: 0 4px 4px 0;
+        font-size: 1rem; 
+        line-height: 1.6;
+    }
+
+    .instruction-box { border-left: 5px solid #ffc107; background-color: #fffdf5; }
+    .collab-box { border-left: 5px solid #0056b3; background-color: #f4faff; }
+    
+    .welcome-text { font-size: 1.1rem; margin-bottom: 12px !important; line-height: 1.6; }
+    p { margin-bottom: 12px; font-size: 1rem; line-height: 1.6; }
+
+    .comparison-header { text-align: center; font-weight: bold; margin-bottom: 12px; display: block; font-size: 1.05rem; }
+    .small-list { font-size: 1rem; padding-left: 1.2rem; color: #333; }
+    .small-list li { margin-bottom: 10px; }
+    
+    .next-btn-container {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+    }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .border-right {
+            border-right: none !important;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+    
+        .instruction-box, .collab-box {
+            padding: 15px 15px !important; 
+        }
+    }
+
+</style>
+
+<div class="instructions">
+    <div style="margin-bottom: 25px;">
+        <p class="welcome-text">This study is <strong>based on a real-life challenge</strong> for transport companies.</p>
+        <p class="welcome-text">The sector is undergoing a <strong>sustainability transition</strong>. To reduce <strong>carbon emissions</strong>, diesel trucks are gradually being replaced by electric trucks.</p>
+        <p class="welcome-text">From 2026, <strong>highway charges</strong> for diesel trucks will increase. This policy is intended to support the <strong>transition to electric transport</strong>.</p>
+    </div>
+
+    <div class="instruction-box">
+        <h5 class="mt-0" style="font-size: 1.15rem;"><strong>The challenge: Insufficient charging infrastructure</strong></h5>
+        <p>
+            Electric trucks require <strong>sufficient charging infrastructure</strong> to work well. Building this network requires <strong>substantial investments</strong>.
+        </p>
+        <p class="mb-0">
+            Most companies have <strong>basic private chargers</strong>, but the public charging network is still too small. As a result, the <strong>transition</strong> to sustainable freight transport is <strong>slower and more difficult</strong>.
+        </p>
+    </div>
+
+    <div class="collab-box">
+        <h5 class="mt-0" style="font-size: 1.15rem;"><strong>Collaboration:</strong></h5>
+        <p>
+            Companies can work together to build a shared charging network. <strong>All companies</strong> can use these charging stations, <strong>even if they did not invest</strong> in building them.
+        </p>
+
+
+        <p class="mb-2">Each company has an annual budget of <strong>€2 million</strong> for investment in charging infrastructure. This budget is partly supported by government policy.</p>
+        <p class="mb-2">Each year, companies decide how much of this budget to:</p>
+        <ul class="mb-0">
+            <li><strong>Invest</strong> in the shared network</li>
+            <li><strong>Keep</strong> for their own company</li>
+        </ul>
+    </div>
+
+    <h5 class="mt-4" style="font-size: 1.15rem;"><strong>The dilemma:</strong></h5>
+    
+    <div class="card bg-light">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 border-right">
+                    <span class="comparison-header">If you choose to invest:</span>
+                    <ul class="small-list">
+                        <li>The shared network grows more quickly.</li>
+                        <li>This supports the transition to electric transport.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <span class="comparison-header">If you choose not to invest:</span>
+                    <ul class="small-list">
+                        <li>You keep more money for your own company now.</li>
+                        <li>You may still benefit from the shared network if other companies invest.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-center mt-4 mb-2">            
+        Keeping the money is tempting because companies that do not invest may have more resources available for their own operations.
+        However, if everyone does this, the network remains limited and the transition becomes more difficult.
+    </p>
+
+    <p class="text-center mb-0">
+        <strong style="font-size: 1.15rem; color: #333;">Will you invest in the shared charging network, or keep the money for your company?</strong>
+    </p>
+</div>
+
+<div class="next-btn-container">
+    <button class="o-tree-btn-next btn btn-primary">
+        Next: How the task works
+    </button>
+</div>
+
+{{ endblock }}

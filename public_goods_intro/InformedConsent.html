@@ -1,0 +1,227 @@
+{{ block title }}
+    Informed consent
+{{ endblock }}
+
+{{ block content }}
+
+    <div class="mobile-landscape-tip mb-4">
+        📱 <strong>Tip for mobile users:</strong> For the best experience during this study, please tilt your device sideways (landscape mode).
+    </div>
+
+    <div id="informed_consent">
+
+        <p><strong>Study on decision-making and cooperation</strong></p>
+
+        <p>
+            This study is conducted by researchers from the Tilburg School of Social and Behavioral Sciences and the Tilburg School of Economics 
+            and Management at Tilburg University. 
+        </p>   
+
+        <p> 
+            The purpose of this study is to investigate how transport companies make investment decisions in shared infrastructure 
+            during the transition to more sustainable freight transport, how cooperation strategies evolve over time, 
+            and how individual attitudes and characteristics relate to these decisions.
+        </p> 
+        
+        <p>
+            In this study, you will take the role of a transport company that decides how much to invest in a shared 
+            electric truck charging infrastructure across multiple rounds. You will make these decisions together with other people, 
+            each representing a different company. Your decisions will impact both your own earnings and those of the other participants in your group.
+            {{ if incentives }} 
+            The earnings you accumulate during the task will be converted into additional payment at the end of the study.
+            {{ endif }}
+        </p>
+
+        {{ if timers }}
+        <p>
+            <strong>Important:</strong> In this study, four people will participate in a live, interactive decision task.
+            For this reason, the interactive elements of the task are timed. 
+            Each page should be completed within 5 minutes, which is more than enough time. 
+            A timer will be displayed on all pages where this applies.
+        </p>
+
+        <p>
+            <strong class="text-danger">
+                If, during the interactive task, at least one participant does not respond within {{ timeout_time_minutes }} minutes, 
+                the session will automatically end for all participants.
+                {{ if incentives }}
+                In that case, all participants will still receive the base participation payment, but no additional earnings from the task will be paid.
+                {{ endif }}
+                Therefore, please make sure that you have enough time available before you decide to participate.
+            </strong>
+        </p>
+        {{ endif }}
+
+        <p><strong>Study Procedure and Interaction</strong></p>
+
+        <p>
+            The study has several rounds. In each round, you will choose how much of your budget to invest in shared infrastructure. 
+            The total investment from the group will be multiplied and then shared equally with everyone, regardless of how much each person invested.
+            The decisions made by you and the other people in your group will together affect how much you earn during the task. The higher your earnings, 
+            the higher the additional payment you will receive.
+        </p>
+
+        <p>
+            Right before the interactive task begins, you will be asked a few brief questions about your expectations. 
+            Then, after the interactive task, you will be asked to complete six short questionnaires about attitudes and individual characteristics. 
+            These questionnaires include topics such as general views about trust and sustainability. This part of the study is not interactive 
+            and there will be no timer.
+        </p> 
+
+        {{ if timers }}
+        <p>
+            Please note that these questionnaires will only appear if the interactive task is completed by all participants in the group. 
+            If the interactive session ends due to a timeout, the questionnaire section will not be shown, and the study will end for your entire group.
+        </p>
+        {{ endif }}
+        
+        <p><strong>Duration and Payment</strong></p>
+
+        <p>
+            The study will take approximately 20 minutes in total. The instruction phase and interactive decision task will take approximately 15 minutes.
+            The questionnaire section will take approximately 5–10 minutes. You will receive a base payment of £3.00 for participating in the study.
+            {{ if incentives }}
+            In addition, you will earn additional payment based on your earnings during the interactive task. 
+            All participants who complete the task and questionnaires will receive this additional payment (minimum ~£0.75).
+            {{ endif }}
+        </p>
+
+        <p class="text-danger">
+            {{ if incentives }}
+            <strong>To receive the full payment (base payment and any additional earnings), participants must complete the interactive task (all rounds) and the subsequent questionnaire section.</strong>
+            {{ endif }}
+        </p>
+
+        <p>
+            {{ if incentives }}
+            <strong>Note on interruption:</strong>
+        </p>
+
+        <ul>
+            <li>
+                <strong>Interruption during the introductory phase:</strong> 
+                The introductory phase includes reading instructions and comprehension checks. If you leave or time out during this phase, the interactive session was never initiated. 
+                <span class="text-danger"><strong>In this case, no payment will be provided.</strong></span>
+            </li>
+            <li>
+                <strong>Interruption during matching:</strong> 
+                If you complete the introductory phase and wait on the grouping page, but a full group of 4 cannot be formed within the 5-minute waiting period, the study will end. 
+                <strong>In this case, you will still receive the base payment for your time spent waiting.</strong>
+            </li>
+            <li>
+                <strong>Interruption after grouping:</strong> 
+                If the interactive task ends early due to a timeout or technical issue <strong>after grouping has occurred</strong> (regardless of whether the timeout was caused by you or another member), participants will still receive the base payment. However, because the task was not completed fully, no additional earnings from the task will be paid and the questionnaire section will be skipped.
+            </li>
+        </ul>
+
+        <p>
+            In all cases where a session ends early, it will not be possible to restart or rejoin the study.
+            {{ endif }}
+        </p>
+        
+        <p>
+            If you have any questions regarding this study, please contact Merve Timuroğulları at 
+            <a href="mailto:m.timurogullari@tilburguniversity.edu">m.timurogullari@tilburguniversity.edu</a>.
+        </p>
+
+        <p>
+            For more detailed information (confidentiality, ethical approval, participation, benefits, risks, and your rights), 
+            please click the button below:
+        </p>
+        
+        <!-- Embedded button for additional consent details -->
+                
+        <button type="button" id="toggleConsentDetails">Click here for the additional consent details</button>
+        <div id="additionalConsentDetails" style="display:none;">
+            <br>
+            <p><strong>Confidentiality and Questions</strong></p>
+            <p>
+                All data obtained from participants will be stored in pseudonymized form. Any information collected about you will be coded 
+                using a fake name (pseudonym) or initials and numbers, for example abc-123, etc. The information which has 
+                your identifiable information will be kept separately from the rest of your data. It will be stored in a 
+                password-protected file and only the researchers will have access to it. Once anonymized, the data may be made 
+                available to researchers via accessible data repositories and possibly used for novel purposes. 
+                The data will be stored for at least 10 years.
+            </p>
+            
+            <p>
+                This study has been approved by the Ethics Review Board of the Tilburg School of Social and Behavioral Sciences (Department of Social Psychology bulk application: EC_TSB_RP1771_5657_4736). 
+                If you have any remarks or complaints regarding this research, you may contact the Ethics Review Board of Tilburg School of 
+                Social and Behavioral Sciences via <a href="mailto:ERB@tilburguniversity.edu">ERB@tilburguniversity.edu</a>.
+            </p>
+
+            <p><strong>Participation, Benefits and Risks</strong></p>
+
+            <p>
+                Participation in this study is completely voluntary. You have the right to withdraw at any time or refuse to 
+                participate entirely. If you wish to withdraw, you can simply close your internet browser. There will be no 
+                negative consequences if you withdraw or refuse to participate. However, additional earnings from the task depend 
+                on completing both the interactive task and questionnaires. Participants who have entered the interactive task but cannot complete it due 
+                to timeouts or technical issues will still receive the base participation payment. Risks are minimal for involvement in this study. 
+                It is very unlikely that answering the questions affects you emotionally or otherwise. You have the right, 
+                in principle, to request access to and rectify, erase, restrict or object to the processing of your personal data.
+            </p>
+
+            <p>
+                By agreeing to participate in the study, I (the participant) confirm that I have read and understood the entire 
+                information letter and confirm that:
+            </p>
+    
+            <ul>
+                <li>I have read and understood the entire information letter that belongs to this study.</li>
+                <li>I had sufficient time to decide whether I would participate or not.</li>
+                <li>I know that participation is completely voluntary.</li>
+                <li>I know that the duration of the study is approximately 20 minutes.</li>
+                <li>I know I can decide to withdraw from the study at any time, without any negative consequences and without providing any explanation.</li>
+                <li>I know I have the right, in principle, to request access to and rectify, erase, restrict, or object to the processing of my personal data.</li>
+                <li>I know that my research data will be processed as described in the information letter and only the research team has access to this data.</li>
+                <li>I give permission to use my research data for the purposes that are mentioned in the information letter that belongs to this study.</li>
+                <li>I give permission to store my research data for the period of 10 years.</li>
+            </ul>
+        </div>    
+
+        <!-- Agreement to participate -->
+
+        <div class="mb-4">
+            <label class="form-label"><b>I have read the information above and agree to participate in the study:</b></label>
+            {{ formfield_errors 'consent' }}
+            {{ form.consent }}
+        </div>
+
+        {{ next_button }}
+
+    </div>
+
+    <div id="warning">
+        <p class="text-danger">
+            Dear participant,<br><br>
+            This study does not work on Internet Explorer and Microsoft Edge. Please use a different browser, such as Google Chrome or Firefox, to proceed.
+        </p>
+    </div>
+{{ endblock }}
+
+{{ block scripts }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var informed_consent = $("#informed_consent");
+            var warning = $("#warning");
+            warning.hide();
+
+            if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)) {
+                informed_consent.hide();
+                warning.show();
+            }
+
+            if (window.navigator.userAgent.indexOf("Edge") > -1) {
+                informed_consent.hide();
+                warning.show();
+            }
+
+            // Toggle the visibility of additional consent details when the button is clicked
+            $("#toggleConsentDetails").on('click', function () {
+                $("#additionalConsentDetails").toggle(); 
+            });
+        });
+    </script>
+{{ endblock }}

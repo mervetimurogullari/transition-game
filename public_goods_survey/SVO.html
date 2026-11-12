@@ -1,0 +1,122 @@
+{{ block title }}
+    Allocation decisions
+{{ endblock }}
+
+{{ block content }}
+    <div class="card mb-4 border-primary shadow-sm">
+        <div class="card-body">
+            <p>
+                In this task, suppose you are making decisions about how to distribute money between
+                <strong>yourself</strong> and <strong>another person</strong>.
+            </p>
+            <p>
+                For each of the following items, please indicate the distribution you would prefer most. 
+            </p>
+            <p class="mb-0">
+            <strong>Imagine</strong> that these choices would influence the amount of money you receive as well 
+            as the amount the other person receives. These decisions are hypothetical.
+            </p>
+        </div>
+    </div>
+
+    {% for item_num, dists in svo_items.items %}
+    <div class="card mb-5 shadow-sm border-0" style="border-top: 4px solid #007bff !important;">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+            <span class="h5 mb-0 text-primary">Decision {{ item_num }}</span>
+            <span class="badge rounded-pill bg-light text-primary border border-primary">Select one vertical pair</span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover text-center align-middle mb-0">
+                    <tbody>
+                        <tr class="border-bottom">
+                            <th scope="row" class="text-start border-0 py-3" style="width: 180px;">You receive</th>
+                            {% for you, other in dists %}
+                                <td class="border-0" data-col="{{ forloop.counter }}">{{ you }}</td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr style="height: 80px;" class="border-bottom bg-light">
+                            <th scope="row" class="text-start border-0">Your choice</th>
+                            {% for you, other in dists %}
+                                <td class="border-0" data-col="{{ forloop.counter }}">
+                                    <input type="radio" 
+                                           name="svo_{{ item_num }}" 
+                                           value="{{ forloop.counter }}" 
+                                           onclick="highlightColumn(this)" 
+                                           required>
+                                </td>
+                            {% endfor %}
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row" class="text-start border-0 py-3 text-secondary">The other receives</th>
+                            {% for you, other in dists %}
+                                <td class="border-0 text-secondary" data-col="{{ forloop.counter }}">{{ other }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <button class="btn btn-primary px-5">Next</button>
+    </div>
+
+    <style>
+        .table th { font-weight: 600; color: #495057; }
+        .table td { color: #212529; transition: background-color 0.2s; } 
+        
+        .selected-column {
+            background-color: rgba(0, 123, 255, 0.1) !important;
+            border-left: 1px solid rgba(0, 123, 255, 0.2);
+            border-right: 1px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .table tbody tr:hover { background-color: rgba(0, 123, 255, 0.04) !important; }
+        input[type="radio"] { transform: scale(1.4); cursor: pointer; }
+        .card-header { border-bottom: 1px solid #f0f0f0; }
+        .bg-light { background-color: #fcfcfc !important; }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            .table th[scope="row"] {
+                width: 90px !important; 
+                font-size: 0.85rem;
+                padding: 0.5rem 0.2rem !important;
+            }
+    
+            .table td {
+                padding: 0.5rem 0.2rem !important;
+                font-size: 0.85rem;
+            }
+    
+            input[type="radio"] {
+                transform: scale(1.1); 
+            }
+    
+            tr[style*="height: 80px"] {
+                height: 60px !important;
+            }
+        }
+        
+    </style>
+
+    <script>
+        function highlightColumn(radioInput) {
+            const tableBody = radioInput.closest('tbody');
+            const colIndex = radioInput.value;
+
+            tableBody.querySelectorAll('td').forEach(td => {
+                td.classList.remove('selected-column');
+            });
+
+            tableBody.querySelectorAll(`td[data-col="${colIndex}"]`).forEach(td => {
+                td.classList.add('selected-column');
+            });
+        }
+    </script>
+{{ endblock }}

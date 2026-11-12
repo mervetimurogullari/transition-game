@@ -1,0 +1,139 @@
+{{ block title }}
+    Examples
+{{ endblock }}
+
+{{ block content }}
+<div class="instructions">
+    <style>
+        .otree-title { 
+            margin-bottom: 12px !important; 
+            padding-top: 5px !important; 
+            font-size: 1.8rem; 
+        }
+        
+        .welcome-text { 
+            font-size: 1.15rem; 
+            margin-bottom: 15px !important; 
+            font-weight: normal;
+            line-height: 1.6;
+        }
+        
+        .instruction-box {
+            border-left: 5px solid #0056b3;
+            padding: 15px 25px; 
+            margin-bottom: 20px; 
+            background-color: #f4faff;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
+            font-size: 1rem;
+        }
+
+        p, ul li { 
+            line-height: 1.6; 
+            margin-bottom: 8px; 
+        }
+        
+        .table { margin-bottom: 15px; font-size: 1rem; }
+        .table-primary { background-color: #e7f1ff !important; }
+
+        .example-note {
+            display: block;
+            margin-top: 12px;
+            padding: 10px;
+            background-color: #fffbe6; 
+            border-radius: 4px;
+            color: #444;
+            font-size: 1rem;
+        }
+
+        .next-btn-container {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: right;
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            .instruction-box { padding: 12px 15px !important; }
+            
+            .table th, .table td {
+                padding: 0.5rem 0.3rem !important;
+                font-size: 0.85rem !important;
+            }
+        }
+
+    </style>
+
+    <p class="welcome-text">Each year, each company starts with <strong>€2 million</strong>.</p>
+
+    <div class="instruction-box">
+        <h5 style="font-size: 1.25rem; margin-top: 0; color: #0056b3;"><strong>Example A: All 4 companies invest €1M</strong></h5>
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0;">
+            <li>1. You keep <strong>€1M</strong> from your budget.</li>
+            <li>2. The group's €4M total is boosted to <strong>€6M</strong>.</li>
+            <li>3. Your share of the boosted total is €6M ÷ 4 = <strong>€1.5M</strong>.</li>
+            <li style="margin-top: 10px; border-top: 1px solid #d0e3ff; padding-top: 8px;">
+                <span style="font-size: 1.15rem; color: #0056b3;"><strong>Your total:</strong> €1M (kept) + €1.5M (shared) = <strong>€2.5 million</strong></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="instruction-box">
+        <h5 style="font-size: 1.25rem; margin-top: 0; color: #0056b3;"><strong>Example B: You invest €0, others invest €1M</strong></h5>
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0;">
+            <li>1. You keep your full <strong>€2M</strong>.</li>
+            <li>2. The group's €3M total is boosted to <strong>€4.5M</strong>.</li>
+            <li>3. Your share of the boosted total is €4.5M ÷ 4 = <strong>€1.125M</strong>.</li>
+            <li style="margin-top: 10px; border-top: 1px solid #d0e3ff; padding-top: 8px;">
+                <span style="font-size: 1.15rem; color: #0056b3;"><strong>Your total:</strong> €2M (kept) + €1.125M (shared) = <strong>€3.125 million</strong></span>
+            </li>
+        </ul>
+        <div class="example-note">
+            <strong>Note:</strong> You earn more in this scenario because you benefit from others' investment without spending your own budget.
+        </div>
+    </div>
+
+    <div class="instruction-box">
+        <h5 style="font-size: 1.25rem; margin-top: 0; color: #0056b3;"><strong>Example C: You invest €1M, others invest €0</strong></h5>
+        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0;">
+            <li>1. You keep <strong>€1M</strong> from your budget.</li>
+            <li>2. The group's €1M total is boosted to <strong>€1.5M</strong>.</li>
+            <li>3. Your share of the boosted total is €1.5M ÷ 4 = <strong>€0.375M</strong>.</li>
+            <li style="margin-top: 10px; border-top: 1px solid #d0e3ff; padding-top: 8px;">
+                <span style="font-size: 1.15rem; color: #0056b3;"><strong>Your total:</strong> €1M (kept) + €0.375M (shared) = <strong>€1.375 million</strong></span>
+            </li>
+        </ul>
+        <div class="example-note">
+            <strong>Note:</strong> You earn less in this scenario because you invest while the other companies do not.
+        </div>
+    </div>
+
+    <h5 style="font-size: 1.25rem; margin-top: 20px; margin-bottom: 12px;">Summary Comparison</h5>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered shadow-sm" style="width: 100%; min-width: 500px; max-width: 800px;">
+            <thead class="thead-light text-center align-middle">
+                <tr>
+                    <th style="width: 18%;">Scenario</th>
+                    <th style="width: 16%;">You Give</th>
+                    <th style="width: 20%;">Others Give<br>in Total</th>
+                    <th style="width: 24%;">Your Share of the<br>Boosted Total</th>
+                    <th class="table-primary" style="width: 22%;"><strong style="color: #0056b3;">Your Total</strong></th>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle">
+                <tr><td>Example A</td><td>€1M</td><td>€3M</td><td>€1.5M</td><td style="color: #0056b3; font-weight: bold;">€2.5M</td></tr>
+                <tr><td>Example B</td><td>€0</td><td>€3M</td><td>€1.125M</td><td style="color: #0056b3; font-weight: bold;">€3.125M</td></tr>
+                <tr><td>Example C</td><td>€1M</td><td>€0</td><td>€0.375M</td><td style="color: #0056b3; font-weight: bold;">€1.375M</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="next-btn-container">
+    <button class="o-tree-btn-next btn btn-primary">
+        Next: Understanding check
+    </button>
+</div>
+
+{{ endblock }}

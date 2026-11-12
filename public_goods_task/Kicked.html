@@ -1,0 +1,30 @@
+{{ block title }}
+    End of the interaction
+{{ endblock }}
+
+{{ block content }}
+<div class="card border-info mb-4 shadow-sm">
+        <div class="card-body">
+            <p>
+                <strong>You did not complete your decision within the {{ timeout_time_minutes }} minute limit.</strong>
+            </p>
+            <p>
+                Because this study requires all 4 participants to act simultaneously, your timeout has caused the interactive session to end for your entire group.
+            </p>
+            <hr>
+            <p>
+                Even though the interactive task could not be completed, the <strong>base participation fee</strong> will still be provided. 
+            </p>
+            
+            <p>
+                Please click below to view the study debriefing.
+            </p>
+        </div>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary">
+        Proceed to debriefing
+        </button>
+    </div>
+{{ endblock }}

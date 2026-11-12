@@ -1,0 +1,50 @@
+{{ block title }}
+    Share your feedback
+{{ endblock }}
+
+{{ block content }}
+
+    <p class="form-label mb-3">
+        Do you have any comments about this study? If so, you can enter your comment below.
+    </p>
+
+    <textarea 
+        name="comment" 
+        class="feedback-input" 
+        placeholder="Your comment here..."
+    ></textarea>
+
+    <div class="d-flex justify-content-center mt-4">
+        <button class="btn btn-primary px-5 py-2">
+            Finish the study
+        </button>
+    </div>
+
+    <style>
+        .form-label {
+            font-weight: 600;
+            color: #495057; 
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .feedback-input {
+            min-height: 120px; 
+            font-size: 1.1rem;
+            line-height: 1.5;
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            width: 100%;
+            display: block;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .feedback-input:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+    </style>
+
+{{ endblock }}

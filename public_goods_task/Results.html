@@ -1,0 +1,186 @@
+{{ extends "otree/Page.html" }} 
+
+{{ block title }}Round (Year) {{ player.round_number }} Results{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-title { 
+        margin-bottom: 5px !important; 
+        padding-top: 0 !important;
+        font-size: 1.8rem; 
+    }
+
+    .welcome-text { 
+        font-size: 1.15rem; 
+        font-weight: normal; 
+        margin-bottom: 10px !important; 
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .results-wrapper {
+        max-width: 1050px;
+        margin: auto;
+    }
+
+    .game-matrix {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 8px; 
+        align-items: center;
+        margin: 5px 0;
+    }
+
+    .company-card {
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        padding: 8px 15px; 
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .is-user {
+        border: 2px solid #0056b3 !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0,86,179,0.15);
+    }
+    
+    .user-label {
+        color: #0056b3;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.9rem; 
+        letter-spacing: 1px;
+    }
+
+    .shared-fund-center {
+        grid-column: 2;
+        grid-row: 2;
+        background: linear-gradient(135deg, #2e7d32, #1b5e20);
+        color: white;
+        padding: 15px 20px; 
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 6px 15px rgba(46,125,50,0.3);
+    }
+
+    .pos-1 { grid-column: 1; grid-row: 1; }
+    .pos-2 { grid-column: 3; grid-row: 1; }
+    .pos-3 { grid-column: 1; grid-row: 3; }
+    .pos-4 { grid-column: 3; grid-row: 3; }
+
+    .val-invested { color: #555; font-size: 1.05rem; margin-bottom: 2px; } 
+    .val-total { font-size: 1.4rem; font-weight: bold; color: #2e7d32; } 
+    .is-user .val-total { color: #0056b3; }
+
+    .section-divider {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 10px auto;
+        width: 80%;
+    }
+
+    .round-summary-text {
+        text-align: center;
+        background: #f8f9fa;
+        padding: 8px 12px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+    }
+
+    .next-btn-container {
+        margin-top: 15px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+    }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .game-matrix {
+            grid-template-columns: 1fr; 
+            grid-template-rows: auto;
+            gap: 15px; 
+        }
+        
+        .shared-fund-center {
+            grid-column: 1;
+            grid-row: 1; 
+            margin-bottom: 10px;
+        }
+
+        .pos-1, .pos-2, .pos-3, .pos-4 {
+            grid-column: 1;
+            grid-row: auto; 
+        }
+        
+        .results-wrapper {
+            padding: 0 10px; 
+        }
+    }
+
+</style>
+
+<div class="results-wrapper">
+    
+    <div style="text-align: center; margin-bottom: 5px;">
+        <p class="welcome-text">Each company started with <strong>{{ C.ENDOWMENT }} Million</strong>.</p>
+    </div>
+
+    <div class="game-matrix">
+        
+        <div class="shared-fund-center">
+            <h6 style="margin-top: 0; opacity: 0.9; font-size: 1.15rem;">Total group investment</h6>
+            <div style="font-size: 2.5rem; font-weight: bold; margin: 2px 0;"> 
+                {{ group.total_contribution }}M
+            </div>
+            <div style="font-size: 1rem; opacity: 0.9; line-height: 1.2;">
+                + 50% boost<br>
+                = <strong style="font-size: 1.2rem;">{{ group.individual_share }}M</strong> per company
+            </div>
+        </div>
+
+        {% for contrib in contributions %}
+            <div class="company-card pos-{{ contrib.index }} {% if contrib.is_you %}is-user{% endif %}">
+                {% if contrib.is_you %}
+                    <div class="user-label">Your Company</div>
+                {% else %}
+                    <div style="font-weight: bold; color: #495057; font-size: 1.1rem;">Company {{ contrib.index }}</div>
+                {% endif %}
+        
+                <hr style="margin: 4px 0;">
+        
+                <div class="val-invested">Invested: <strong>{{ contrib.contribution }}M</strong></div>
+                <div class="val-invested" style="color: #888;">Kept: <strong>{{ contrib.money_kept }}M</strong></div>
+        
+                <div style="margin-top: 6px; padding-top: 4px; border-top: 1px dashed #ddd;">
+                    <small style="color: #666; display: block; font-size: 0.8rem; line-height: 1;">
+                        Total Earnings (Kept + Share):
+                    </small>
+                    <span class="val-total">{{ contrib.payoff }}M</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="round-summary-text">
+        {% if player.round_number == C.NUM_ROUNDS %}
+            <h5 style="color: #0056b3; margin: 0;">Final round (year) complete</h5>
+            <p class="mb-0">You have successfully completed all {{ C.NUM_ROUNDS }} rounds.</p>
+        {% else %}
+            <p class="mb-0">Review results before proceeding to the next round (year).</p>
+        {% endif %}
+    </div>
+
+    <div class="next-btn-container">
+        {{ next_button }}
+    </div>
+
+</div>
+
+{{ endblock }}

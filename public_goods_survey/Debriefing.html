@@ -1,0 +1,88 @@
+{{ block title }}
+    Debriefing
+{{ endblock }}
+
+{{ block content }}
+
+<p>
+    Dear participant, thank you for taking part in this study.
+</p>
+
+<p>
+    This research investigates <strong>how people make investment decisions about shared infrastructure and 
+    how cooperation develops over repeated interactions</strong>. The design is based on a scenario involving the transition to electric freight transport.
+</p>
+
+<p>
+    In this study, participants took the role of transport companies and decided how much of their budget to 
+    invest in a shared electric truck charging infrastructure. Each round represented one year. 
+    The total investment made by the group was increased by a fixed factor representing public support for infrastructure 
+    development and then distributed equally among all companies, regardless of how much each company invested. 
+    This decision task is based on a well-known economic decision paradigm that is often used to study cooperation in groups.
+</p>
+
+<p>
+    This decision environment captures a common challenge in sustainability transitions: investments in shared 
+    infrastructure can benefit everyone in the long term, but individual organizations may also have incentives 
+    to prioritize their own short-term resources.
+</p>
+
+<p>
+    Before and after the interactive task, participants were asked to complete several short questionnaires about
+    expectations, attitudes, and individual characteristics (for example, views about trust and sustainability).
+    These measures help us understand how expectations are formed, and how individual differences relate to decision-making and cooperation
+    in situations like the one presented in this study.
+</p>
+
+<p>
+    In some cases, interactive sessions may have ended early if a participant did not respond within the required time.
+    This feature is necessary to maintain the real-time interaction of the task.
+</p>
+
+<p>
+    The results of this research will help us better understand how cooperation emerges in sustainability 
+    transitions that require coordinated investments, such as shared charging infrastructure in the transport 
+    sector.
+</p>
+
+<p>
+    If you are interested in the results of this study, please let us know and we will provide a summary of the 
+    findings once the research is completed. If you have any questions about the study or its procedures, please 
+    contact the researcher, Merve Timuroğulları at <a href="mailto:m.timurogullari@tilburguniversity.edu">here</a>.
+</p>
+
+<p>
+    Thank you for your time and your contribution to this research.
+</p>
+
+<div class="card border-success mb-4 shadow-sm">
+    <div class="card-body text-center">
+        <h5 class="card-title text-success">Finalizing your submission</h5>
+        
+        <p class="lead">
+            <strong>Please click the button below to register your completion on Prolific.</strong>
+        </p>
+
+        <p class="text-muted" style="max-width: 80%; margin: 0 auto 1.5rem auto;">
+            The research team will manually review the session data to finalize your payment. 
+            As specified in the study description, the final payment (base fee and any additional 
+            earnings) is determined by your level of completion and session events.
+        </p>
+        
+        <a href="{{ session.config.prolific_redirect_url }}" 
+           class="btn btn-success btn-lg px-5">
+            Complete submission on Prolific
+        </a>
+        
+        <p class="text-muted mt-3">
+            <small>Completion code: <strong>CB0ERAH4</strong></small>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-1 col-md-offset-11">
+    </div>
+</div>
+
+{{ endblock }}

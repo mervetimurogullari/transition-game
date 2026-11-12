@@ -1,0 +1,113 @@
+{{ block title }}
+    Personality
+{{ endblock }}
+
+{{ block content }}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Please answer all statements to continue.</strong>
+        </div>
+    {% endif %}
+
+    <div class="card mb-4 border-primary">
+        <div class="card-body">
+            <p>Below, you will find a series of statements about you. Please read each statement and decide how much you agree or disagree.</p>
+            <p class="mb-0"><strong>Please answer every statement</strong>, even if you are not completely sure of your response.</p>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="sticky-top bg-light" style="top: 0; z-index: 1000;">
+                <tr class="text-center">
+                    <th style="width: 40%; text-align: left;">Statement</th>
+                    <th>Strongly Disagree</th>
+                    <th>Disagree</th>
+                    <th>Neutral</th>
+                    <th>Agree</th>
+                    <th>Strongly Agree</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for field in form %}
+                        {# Repeat Header before items 6, 11, 16, 21, etc. #}
+                        {% if forloop.counter == 6 or forloop.counter == 11 or forloop.counter == 16 or forloop.counter == 21 %}
+                            <tr class="bg-light text-center">
+                                <th style="text-align: left;">Statement</th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Neutral</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        {% endif %}
+
+                        <tr>
+                            <td class="pe-3">
+                                {{ field.label }}
+                                {% if field.errors %}
+                                    <div class="text-danger small fw-bold">{{ field.errors }}</div>
+                                {% endif %}
+                            </td>
+                            
+                            <td class="text-center"><input type="radio" name="{{ field.name }}" value="1" required></td>
+                            <td class="text-center"><input type="radio" name="{{ field.name }}" value="2" required></td>
+                            <td class="text-center"><input type="radio" name="{{ field.name }}" value="3" required></td>
+                            <td class="text-center"><input type="radio" name="{{ field.name }}" value="4" required></td>
+                            <td class="text-center"><input type="radio" name="{{ field.name }}" value="5" required></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 mb-5">
+        <button class="btn btn-primary px-5">Next</button>
+    </div>
+
+    <style>
+        .table td { 
+            padding: 1.2rem 0.75rem; 
+            border-bottom: 1px solid #dee2e6; 
+            font-size: 1.05rem; 
+        }
+        
+        .table tbody tr:hover { background-color: rgba(0, 123, 255, 0.05) !important; }
+        
+        input[type="radio"] { transform: scale(1.4); cursor: pointer; }
+        
+        th { 
+            font-weight: 600; 
+            color: #495057; 
+            font-size: 1rem; 
+        }
+        
+        .sticky-top { box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            th { 
+                font-size: 0.65rem !important; 
+                padding: 0.5rem 0.2rem !important; 
+                word-wrap: break-word;
+                line-height: 1.1;
+            }
+    
+            .table td { 
+                padding: 0.8rem 0.2rem !important; 
+            }
+    
+            .table td.pe-3 { 
+                min-width: 140px; 
+                font-size: 0.9rem !important;
+                padding-left: 0.5rem !important;
+                line-height: 1.3;
+            }
+    
+            input[type="radio"] { 
+                transform: scale(1.2); 
+            }
+        }
+        
+    </style>
+{{ endblock }}

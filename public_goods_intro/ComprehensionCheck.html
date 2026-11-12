@@ -1,0 +1,100 @@
+{{ block title }}
+    Comprehension check
+{{ endblock }}
+
+{{ block content }}
+
+    <style>
+        .otree-title { 
+            margin-bottom: 5px !important; 
+            padding-top: 0 !important; 
+            font-size: 1.8rem;
+        }
+        
+        .welcome-text { 
+            font-size: 1.15rem; 
+            margin-bottom: 12px !important; 
+            font-weight: normal; 
+            line-height: 1.5;
+        }
+
+        .recap-box {
+            background-color: #f0f7ff; 
+            border: 1px solid #d0e3ff; 
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+        }
+        .recap-box ul { margin-bottom: 0; }
+        .recap-box li { margin-bottom: 4px; font-size: 1rem; }
+
+        .questions-card {
+            background-color: #ffffff; 
+            border: 1px solid #dee2e6; 
+            padding: 15px 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 1rem;
+        }
+
+        .questions-card .form-group { margin-bottom: 10px !important; }
+
+        .explanation-note {
+            background-color: #fffbe6; 
+            border-left: 4px solid #f9ca24; 
+            padding: 12px 18px;
+            margin-top: 15px;
+            font-size: 1rem; 
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .next-btn-container {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: right;
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            .recap-box { padding: 12px 15px !important; }
+            .questions-card { padding: 15px 12px !important; }
+            .explanation-note { padding: 12px 15px !important; }
+        }
+
+    </style>
+
+    <div class="instructions">
+        <p class="welcome-text">
+            You’re almost ready to start. Please answer these three questions to confirm how the task works.
+        </p>
+
+        <div class="recap-box">
+            <h6 style="color: #0056b3; margin-top: 0; margin-bottom: 5px;"><strong>Quick Recap:</strong></h6>
+            <ul>
+                <li>Every round, you start with <strong>€{{ endowment }} million</strong>.</li>
+                <li>All investments are <strong>boosted by 50%</strong>. That means, the more that is invested overall, the more the boosted total increases.</li>
+                <li>The boosted total is <strong>shared equally</strong> between all 4 companies.</li>
+            </ul>
+        </div>
+
+        <div class="questions-card">
+            {{ formfield player.comprehension1 }}
+            {{ formfield player.comprehension2 }}
+            {{ formfield player.comprehension3 }}
+        </div>
+
+        <div class="explanation-note">
+            If any answer is incorrect, you will see an explanation and will be asked to try again.
+            Once all answers are correct, you will proceed to the next step and enter the pairing lobby. 
+            The interactive decision task will begin once your group is formed.
+        </div>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary">
+            Submit and continue
+        </button>
+    </div>
+{{ endblock }}

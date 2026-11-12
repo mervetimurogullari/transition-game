@@ -1,0 +1,35 @@
+{{ extends "global/Base.html" }}
+
+{{ block title }}
+    End of interaction
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card border-info mb-4 shadow-sm">
+    <div class="card-body">
+        {% if was_never_grouped %}
+            <p><strong>You were not matched within the required 5-minute waiting period.</strong></p>
+        {% else %}
+            <p><strong>One of the other participants left the study.</strong></p>
+        {% endif %}
+
+        <p>
+            Since this task was played in real time, you are unfortunately unable to continue. 
+            We sincerely apologize for the inconvenience.
+        </p>
+
+        <hr>
+        <p>
+            You will still receive the <strong>base participation fee</strong>. 
+            Please click below to view the final debriefing and complete your session.
+        </p>
+    </div>
+</div>
+
+<div class="next-btn-container">
+    <button class="o-tree-btn-next btn btn-primary">
+        Proceed to debriefing
+    </button>
+</div>
+{{ endblock }}

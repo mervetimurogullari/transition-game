@@ -1,0 +1,153 @@
+{{ extends "otree/Page.html" }} {{ block title }}Task completion summary{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-title { 
+        margin-bottom: 15px !important; 
+        padding-top: 10px !important;
+        font-size: 1.8rem; 
+    }
+
+    .welcome-text { 
+        font-size: 1.15rem; 
+        font-weight: normal; 
+        margin-bottom: 10px !important; 
+        line-height: 1.5;
+        color: #333;
+    }
+
+    .results-wrapper {
+        max-width: 750px;
+        margin: auto;
+    }
+
+    .earnings-box {
+        border-left: 5px solid #0056b3;
+        background-color: #f4faff;
+        padding: 25px;
+        border-radius: 0 12px 12px 0;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .payout-card {
+        background-color: #ffffff; 
+        border: 2px solid #2e7d32; 
+        padding: 20px; 
+        border-radius: 15px; 
+        box-shadow: 0 4px 15px rgba(46,125,50,0.1); 
+        margin-bottom: 25px;
+    }
+
+    .instruction-box {
+        background-color: #f8f9fa; 
+        border-left: 5px solid #6c757d; 
+        padding: 20px;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .next-btn-container {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+    }
+
+    .info-text { font-size: 1rem; line-height: 1.6; color: #444; }
+    
+    p { line-height: 1.5; margin-bottom: 10px; }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .earnings-box { padding: 15px !important; }
+        .payout-card { padding: 15px 12px !important; }
+        .instruction-box { padding: 15px 15px !important; }
+        
+        .earnings-box div { font-size: 2rem !important; }
+        
+        .table-borderless { font-size: 0.95rem !important; }
+        .table-borderless tr[style*="font-size: 1.25rem"] { font-size: 1.1rem !important; }
+    }
+    
+</style>
+
+<div class="results-wrapper">
+    
+    <div style="text-align: center; margin-bottom: 25px;">
+        <div style="font-size: 3rem; margin-bottom: 5px;">🏆</div>
+        <h3 style="font-weight: bold;">You have successfully completed all {{ num_rounds }} rounds.</h3>
+    </div>
+
+    <div class="earnings-box">
+        <h5 style="color: #0056b3; margin-top: 0; font-weight: bold;">Total Task Earnings</h5>
+        <div style="font-size: 2.5rem; font-weight: bold; color: #0056b3; margin-bottom: 5px;">
+            €{{ total_earnings }} Million
+        </div>
+        <p class="info-text mb-0">
+            This is the total amount your company accumulated across all 10 years, 
+            including the budget you kept and your share of the boosted total.
+        </p>
+    </div>
+
+    {% if incentives %}
+    <div class="payout-card">
+        <h5 style="color: #2e7d32; margin-top: 0; text-align: center; font-weight: bold;">Final Payout Calculation</h5>
+        
+        <div style="background-color: #f1f8f1; border-radius: 8px; padding: 10px; margin-bottom: 15px; text-align: center; font-size: 0.95rem; color: #1b5e20; border: 1px dashed #2e7d32;">
+            <strong>Conversion Rule:</strong> £0.10 for every €1 Million earned in-task.
+        </div>
+
+        <table class="table table-borderless mb-0" style="font-size: 1.05rem;">
+            <tbody>
+                <tr>
+                    <td>Base participation fee:</td>
+                    <td class="text-right font-weight-bold">£{{ base_fee }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Task bonus payment: <br>
+                        <small class="text-muted">(€{{ total_earnings }}M earnings)</small>
+                    </td>
+                    <td class="text-right font-weight-bold" style="color: #2e7d32; vertical-align: middle;">
+                        + £{{ bonus }}
+                    </td>
+                </tr>
+                <tr style="border-top: 2px solid #2e7d32; font-size: 1.25rem;">
+                    <td class="pt-3"><strong>Your total payment:</strong></td>
+                    <td class="text-right pt-3" style="color: #2e7d32;"><strong>£{{ final_payoff_total }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <div class="instruction-box">
+        <p style="font-size: 1.1rem; margin-bottom: 8px;"><strong>What's next?</strong></p>
+        <p class="info-text mb-3">
+            The interactive part of the study is finished. There is <strong>no longer a time limit</strong>. 
+            Please click the button below to answer a few survey questions about your experience and general views.
+        </p>
+        
+        <p class="info-text mb-0" style="padding: 10px; border-radius: 5px; background-color: #fff4e6; border-left: 3px solid #fd7e14;">
+            <strong>Note:</strong> As stated before, you must complete this final survey section to 
+            <span style="color: #d9480f; font-weight: bold; text-decoration: underline;">finalize your participation and process your payment</span>.
+        </p>
+    </div>
+
+    <div class="mt-4 p-3 text-center" style="background-color: #fff9db; border-radius: 8px; border: 1px solid #ffe066;">
+        <p class="mb-0" style="color: #856404; font-size: 1.05rem;">
+            <em>Remember: For the following questions, there are <strong>no right or wrong answers</strong>. 
+            We are simply interested in your choices and views.</em>
+        </p>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary">
+            Continue to questions
+        </button>
+    </div>
+
+</div>
+
+{{ endblock }}

@@ -1,0 +1,140 @@
+{{ load static }}
+
+{{ block title }}
+    How the decision task works
+{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-title { 
+        margin-bottom: 15px !important; 
+        padding-top: 10px !important;
+        font-size: 1.8rem; 
+    }
+    
+    h5 { font-size: 1.2rem; margin-top: 25px; margin-bottom: 12px; color: #333; }
+
+    .structure-box {
+        background-color: #fcfcfc; 
+        border: 1px solid #dee2e6; 
+        padding: 15px 20px; 
+        border-radius: 8px;
+    }
+    .structure-box ul li { margin-bottom: 6px; font-size: 1rem; }
+
+    .benefit-span {
+        background-color: #f8fff8; 
+        border-left: 4px solid #2e7d32; 
+        padding: 12px 18px; 
+        display: block;
+        margin-bottom: 12px;
+        line-height: 1.5;
+        font-size: 1rem;
+    }
+
+    .total-calc {
+        text-align: left; 
+        font-size: 1rem; 
+        background: #fcfcfc; 
+        padding: 15px 20px; 
+        border-radius: 8px;
+        border: 1px solid #dee2e6; 
+        margin: 15px 0;
+    }
+    .total-calc ul { margin-bottom: 0; }
+    .total-calc li { margin-bottom: 8px; }
+
+
+    .warning-note {
+        font-size: 1rem;
+        color: #555;
+        background-color: #fff4e5; 
+        padding: 12px;
+        border-radius: 5px;
+        font-style: italic;
+        margin-top: 15px;
+    }
+
+    .game-overview-img {
+        display: block; 
+        width: 100%; 
+        max-width: 800px; 
+        height: auto; 
+        margin: 20px auto; 
+        border: 1px solid #eee;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .next-btn-container {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+    }   
+
+    p { margin-bottom: 12px; line-height: 1.6; font-size: 1rem; }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .instruction-box, .structure-box, .benefit-span, .total-calc {
+            padding: 12px 15px !important; 
+        }
+    }
+    
+</style>
+
+    <div class="instructions">
+        
+        <h5><strong>1. Task structure</strong></h5>
+        <div class="structure-box">
+            <ul class="mb-0">
+                <li><strong>Players:</strong> You and <strong>3</strong> others (4 companies total).</li>
+                <li><strong>Duration:</strong> <strong>{{ num_rounds }} rounds</strong> (representing {{ num_rounds }} years).</li>
+                <li><strong>Budget:</strong> You start each year with <strong>€{{ endowment }} million</strong>.</li>
+                <li><strong>Decision:</strong> Invest any amount of your budget in the shared charging fund, or invest nothing.</li>
+            </ul>
+        </div>
+
+        <h5><strong>2. How benefits grow</strong></h5>
+        <p>To simulate public support and shared infrastructure benefits:</p>
+        <div class="benefit-span">
+            <strong>The boost:</strong> The total group investment is <strong style="color: #2e7d32;">boosted by 50%</strong>. This reflects public support and synergistic gains.
+        </div>
+        <div class="benefit-span">
+            <strong>Equal sharing:</strong> The boosted total is <strong style="color: #2e7d32;">shared equally</strong> among all 4 companies, regardless of how much each company invested.
+        </div>
+
+        <h5><strong>3. Your final total</strong></h5>
+        <p>At the end of the task, your total earnings consist of:</p>
+        <div class="total-calc">
+            <ul style="list-style-type: disc;">
+                <li>The money you kept from your annual budgets</li>
+                <li>Your share of the boosted total (total group investment plus the 50% public boost)</li>
+            </ul>
+        </div>
+        
+        <div class="warning-note">
+            <strong>Remember:</strong> You will receive a share of the boosted total even if you do not invest. However, if no one invests, the boosted total remains small and all companies receive a small return.
+        </div>
+
+        <!-- <div class="mt-5">
+            <p><strong>Overview of the decision task:</strong></p>
+            <img src="{{ static 'global/images/transition_game.png' }}" class="game-overview-img">
+        </div> -->
+
+        <div class="mt-5">
+            <p><strong>Overview of the decision task:</strong></p>
+            <img src="{{ static 'global/images/transition_game_gif_.gif' }}" class="game-overview-img">
+        </div>
+
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary btn">
+            Next: See examples
+        </button>
+    </div>
+
+{{ endblock }}

@@ -1,0 +1,97 @@
+{{ block title }}
+    Group formed!
+{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-title { 
+        margin-bottom: 20px !important; 
+        padding-top: 10px !important;
+        font-size: 1.8rem; 
+    }
+
+    .welcome-text { 
+        font-size: 1.15rem; 
+        font-weight: normal; 
+        margin-bottom: 20px !important; 
+        line-height: 1.5;
+    }
+
+    .instruction-box {
+        border-left: 4px solid #0056b3;
+        padding: 15px 20px; 
+        margin-bottom: 20px; 
+        background-color: #f4faff; 
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .warning-box {
+        background-color: #fff5f5; 
+        border: 1px solid #feb2b2; 
+        padding: 15px; 
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    
+    .reminder-text {
+        color: #4a5568;
+        background-color: #f7fafc;
+        border: 1px dashed #cbd5e0;
+        padding: 10px 15px;
+        border-radius: 6px;
+        font-style: italic;
+    }
+
+    p { margin-bottom: 12px; font-size: 1rem; line-height: 1.5; }
+    
+    .next-btn-container {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+    }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .instruction-box, .warning-box, .reminder-text { 
+            padding: 12px 15px !important; 
+        }
+    }
+    
+</style>
+
+    <div class="instructions">
+        <div class="text-center mb-4">
+            <div style="font-size: 3rem; color: #2e7d32; margin-bottom: 10px;">✔</div>
+            
+            <p class="welcome-text">
+                You have been successfully paired with <strong>3</strong> other players.
+            </p>
+        </div>
+
+        <div class="instruction-box">
+            <p class="mb-0">
+                Before Round 1 begins, we have a few brief questions about your expectations.
+            </p>
+        </div>
+
+        <div class="warning-box">
+            <p style="color: #c53030; margin-bottom: 0;">
+                <strong>Note:</strong> You are now in a live session. Please make your decisions within the time limit to ensure the task continues for everyone.
+            </p>
+        </div>
+
+        <div class="text-center">
+            <p class="reminder-text d-inline-block">
+                Reminder: There are no right or wrong answer. We are only interested in your decisions.
+            </p>
+        </div>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary">Proceed to questions</button>
+    </div>
+
+{{ endblock }}

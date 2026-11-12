@@ -1,0 +1,165 @@
+{{ block title }}
+    Overview of the study
+{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-title { 
+        margin-bottom: 15px !important; 
+        padding-top: 10px !important;
+        font-size: 1.8rem; 
+    }
+    
+    .instruction-box {
+        border-left: 4px solid #6c757d;
+        padding: 15px 20px; 
+        margin-bottom: 15px; 
+        background-color: #fcfcfc;
+        border-radius: 0 4px 4px 0;
+        font-size: 1rem;
+    }
+    
+    .box-grey { border-left-color: #6c757d; }
+    .box-green { border-left-color: #2e7d32; background-color: #f8fff8; }
+    .box-blue { border-left-color: #0056b3; background-color: #f4faff; }
+    
+    .timer-text {
+        font-size: 0.9rem;
+        color: #6c757d;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .next-btn-container {
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+    }
+
+    .welcome-text { 
+        font-size: 1.1rem; 
+        font-weight: normal; 
+        margin-bottom: 20px !important; 
+        line-height: 1.5;
+    }
+
+    ul { margin-bottom: 10px !important; }
+    ul li { margin-bottom: 5px; }
+    p { margin-bottom: 10px; line-height: 1.5; }
+    
+    .note-box {
+        font-size: 1rem !important; 
+    }
+
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .instruction-box, .structure-box, .benefit-span, .total-calc {
+            padding: 12px 15px !important; 
+        }
+    }
+    
+    /* Hides the tip on desktop/laptop */
+    .mobile-landscape-tip {
+        display: none; 
+    }
+
+    /* Shows the tip ONLY on mobile screens */
+    @media (max-width: 768px) {
+        .mobile-landscape-tip {
+            display: block; 
+            background-color: #f8f9fa;
+            color: #495057;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            border-left: 4px solid #0d6efd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+    }
+        
+</style>
+
+    <div class="mobile-landscape-tip">
+        📱 <strong>Tip for mobile users:</strong> For the best experience during this study, please tilt your device sideways (landscape mode).
+    </div>
+
+    <p class="welcome-text">
+        Welcome! Thank you for joining this study on how transport companies make decisions. 
+        The study consists of three main parts:
+    </p>
+
+    <div class="instruction-box box-grey">
+        <h5 class="mt-0" style="font-size: 1.2rem;"><strong>Part 1: Instructions</strong></h5>
+        <p class="mb-1">
+            You will read the background story and the rules of the decision task.
+            {{ if comprehension_check }}
+            To ensure everything is clear, there will be a short comprehension check at the end.
+            {{ endif }}
+        </p>
+        {{ if timers }}
+        <span class="timer-text"><i>(Time limit: {{ timeout_time_minutes }} minutes per page)</i></span>
+        {{ endif }}
+    </div>
+
+    <div class="instruction-box box-green">
+        <h5 class="mt-0" style="font-size: 1.2rem;"><strong>Part 2: The interactive decision task</strong></h5>
+        <p class="mb-2">
+            You will represent a transport company together with 3 other participants, each representing a different company.
+            Your goal: <strong>Manage the transition from diesel to electric trucks.</strong>
+        </p>
+
+        <p class="mb-2">
+        Right after your group is formed, you will first answer a few brief questions about your expectations.
+        </p>
+
+
+        <p class="mb-1">Each round, you decide how to allocate your budget:</p>
+        <ul class="mb-3">
+            <li><strong>Investing</strong> in a shared public charging infrastructure</li>
+            <li><strong>Keeping</strong> it for your own company</li>
+        </ul>
+        
+        <p class="mb-3">
+            The shared infrastructure grows only if companies invest. However, because it is public, all companies benefit from it even if some companies invest less or not at all.
+        </p>
+        
+        {{ if timers }}
+        <span class="timer-text"><i>(Time limit: {{ timeout_time_minutes }} minutes per round)</i></span>
+        {{ endif }}
+
+        {{ if incentives }}
+        <div class="card mt-3 note-box" style="border-left: 3px solid #2e7d32;">
+            <div class="card-body py-2">
+                <strong>Note:</strong> Earnings from the task directly determine <strong>the additional payment you receive</strong>.
+            </div>
+        </div>
+        {{ endif }}
+    </div>
+
+    <div class="instruction-box box-blue">
+        <h5 class="mt-0" style="font-size: 1.2rem;"><strong>Part 3: Final questions</strong></h5>
+        <p class="mb-0">
+            The study concludes with surveys regarding your experience and views.
+            {{ if timers }}
+            <span class="timer-text"><i>(No time limit)</i></span>
+            {{ endif }}
+        </p>
+    </div>
+
+    <div class="text-center mt-4">
+        <p class="mb-0 text-secondary" style="font-size: 1.05rem;">
+            <em>For both the decision task and the surveys, there are <strong>no right or wrong answers</strong>. 
+            We are simply interested in your choices and views.</em>
+        </p>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary">
+            Next: Background scenario
+        </button>
+    </div>
+
+{{ endblock }}

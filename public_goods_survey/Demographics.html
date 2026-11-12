@@ -1,0 +1,97 @@
+{{ block title }}
+    Background information
+{{ endblock }}
+
+{{ block content }}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Please complete all fields to finish the survey.</strong>
+        </div>
+    {% endif %}
+
+    <div class="card mb-4 border-primary">
+        <div class="card-body">
+            <p class="mb-0 text-muted">
+                Please provide some basic background information about yourself. 
+                This information will be used for statistical purposes only.
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <label class="form-label" for="id_age">1. What is your age?</label>
+        {{ formfield_errors 'age' }}
+        <div style="max-width: 200px;">
+            <select name="age" id="id_age" class="form-control" required>
+                <option value="" selected disabled>Select age...</option>
+                </select>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <label class="form-label">2. How would you describe your gender?</label>
+        <div class="otree-form-errors">
+            {{ formfield_errors 'gender' }}
+        </div>
+        
+        <div class="gender-align-fix">
+            {{ formfield 'gender' label="" }}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <button class="btn btn-primary px-5 py-2" style="font-size: 1.1rem;">Next</button>
+    </div>
+
+    <style>
+        .form-label {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #212529;
+            font-weight: 500;
+        }
+
+        select.form-control {
+            font-size: 1rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .gender-align-fix .form-check {
+            display: flex !important;
+            align-items: center !important;
+            margin-bottom: 15px !important; 
+            padding-left: 0 !important;
+        }
+
+        .gender-align-fix input[type="radio"] {
+            margin-right: 12px !important;
+            margin-left: 0 !important;
+            width: 1.5rem; 
+            height: 1.5rem;
+            position: relative !important;
+            float: none !important;
+            cursor: pointer;
+        }
+
+        .gender-align-fix label {
+            margin-bottom: 0 !important;
+            cursor: pointer;
+            font-weight: normal;
+            font-size: 1.05rem;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ageSelect = document.getElementById("id_age");
+            for (let i = 18; i <= 100; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                ageSelect.appendChild(option);
+            }
+        });
+    </script>
+{{ endblock }}

@@ -1,0 +1,117 @@
+{{ block title }}
+    Future outlook
+{{ endblock }}
+
+{{ block content }}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Please answer all statements to continue.</strong>
+        </div>
+    {% endif %}
+
+    <div class="card mb-4 border-primary">
+        <div class="card-body">
+            <p>For each of the following statements, please indicate how characteristic the statement is of you.</p>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="bg-light">
+                <tr class="text-center">
+                    {# We keep your original width and alignment, just adding the color #}
+                    <th style="text-align: left; width: 40%; font-weight: 600; color: #495057; font-size: 1rem; vertical-align: bottom; padding-bottom: 10px !important;">
+                        Statement
+                    </th>
+                    
+                    {# Likert Columns stay the same #}
+                    <th class="likert-head">Extremely Uncharacteristic<br>1</th>
+                    <th class="likert-head"><br>2</th>
+                    <th class="likert-head"><br>3</th>
+                    <th class="likert-head">Neutral<br>4</th>
+                    <th class="likert-head"><br>5</th>
+                    <th class="likert-head"><br>6</th>
+                    <th class="likert-head">Extremely Characteristic<br>7</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for field in form %}
+                <tr>
+                    <td class="pe-3">
+                        {{ field.label }}
+                        {% if field.errors %}
+                            <div class="text-danger small fw-bold">{{ field.errors }}</div>
+                        {% endif %}
+                    </td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="1" required></td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="2" required></td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="3" required></td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="4" required></td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="5" required></td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="6" required></td>
+                    <td class="text-center"><input type="radio" name="{{ field.name }}" value="7" required></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4 mb-5">
+        <button class="btn btn-primary px-5">Next</button>
+    </div>
+
+    <style>
+        .likert-head {
+            width: 8.5%;
+            min-width: 80px; 
+            font-size: 0.85rem;
+            line-height: 1.2;
+            font-weight: 600;
+            color: #495057;
+            vertical-align: bottom;
+            padding-bottom: 10px !important;
+        }
+
+        .table td { 
+            padding: 1.2rem 0.75rem; 
+            border-bottom: 1px solid #dee2e6; 
+            font-size: 1.05rem; 
+        }
+
+        .table tbody tr:hover { background-color: rgba(0, 123, 255, 0.05) !important; }
+
+        input[type="radio"] { 
+            transform: scale(1.3); 
+            cursor: pointer; 
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            th[style*="width: 40%"] { 
+                width: 120px !important; 
+                font-size: 0.85rem !important; 
+            }
+            
+            .likert-head { 
+                min-width: 40px !important; 
+                width: auto !important; 
+                font-size: 0.6rem !important; 
+                padding: 0.4rem 0.1rem !important; 
+            }
+            
+            .table td { 
+                padding: 0.6rem 0.1rem !important; 
+                font-size: 0.9rem !important; 
+            }
+            
+            .table td.pe-3 { 
+                min-width: 120px; 
+                font-size: 0.85rem; 
+                padding-left: 0.5rem !important; 
+            }
+            
+            input[type="radio"] { transform: scale(1.1); }
+        }
+        
+    </style>
+{{ endblock }}

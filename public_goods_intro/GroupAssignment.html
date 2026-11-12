@@ -1,0 +1,54 @@
+{{ block title }}
+    Pairing & group formation
+{{ endblock }}
+
+{{ block content }}
+
+    <style>
+        .next-btn-container {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: right;
+        }
+
+        .welcome-text { 
+            font-size: 1.15rem; 
+            margin-bottom: 20px !important; 
+            font-weight: normal; 
+            line-height: 1.5;
+        }
+
+        p { margin-bottom: 12px; font-size: 1rem; line-height: 1.5; }
+
+        .fallback-info {
+            border-top: 1px solid #eee; 
+            padding-top: 15px; 
+            color: #444; 
+        }
+    </style>
+
+    <div class="instructions">
+        <p class="welcome-text">
+            You will enter the task lobby on the next page. You will be paired with <strong>3</strong> other participants to form a group of 4 companies. 
+            This may take a moment if others are still reading the instructions. After clicking to proceed, please wait up to 5 minutes for pairing.
+        </p>
+
+        <div style="background-color: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+            <p style="margin-bottom: 0;">
+                <strong>Please keep this window open when the study shows a waiting screen while the system pairs you with other participants.</strong>  
+                 If the window is closed during this stage, the task may end for the rest of the group. If you decide to stop participating, 
+                 please try to do so on a page that does not show the waiting screen.
+                 <br><br>
+                 <strong>Note:</strong> If the <strong>5-minute timer</strong> expires, the session will end for the group, and you will be moved immediately to the debriefing.
+            </p>
+        </div>
+    </div>
+
+    <div class="next-btn-container">
+        <button class="o-tree-btn-next btn btn-primary">
+            Next: Ready to pair
+        </button>
+    </div>
+
+{{ endblock }}
